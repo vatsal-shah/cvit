@@ -1,7 +1,8 @@
+clear all;clc;close all;
 load datafile.mat;
-cd ./testing ;
-im = imread('1.jpg');
-cd ..
+%cd ./testing ;
+im = imread('/home/vatsal/CVIT/Honours/github/histograms/testing/10.jpg');
+%cd ..
 im1 = im(:,:,1);
 im2 = im(:,:,2);
 im3 = im(:,:,3);
@@ -22,3 +23,8 @@ for i=1:size(data,1)
     %distanc(i,:) = sum(abs(hist1 - hist2));
 end
 [mini,ind] = min(distanc);
+filename = strcat('/home/vatsal/CVIT/Honours/github/histograms/training/',num2str(ind),'.jpg');
+subplot(1,2,1);
+imshow(im);
+subplot(1,2,2);
+imshow(filename);
